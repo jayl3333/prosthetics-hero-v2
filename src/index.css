@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, "PingFang SC", "HarmonyOS Sans",
+    "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Editorial × Warm Gold Theme (Light) ===== */
+
+:root {
+  --gold-900: #8b6f1f;
+  --gold-700: #b8962f;
+  --gold-500: #d4a843;
+  --gold-400: #e0b85c;
+  --gold-300: #e8c97a;
+  --gold-100: #f5e6c0;
+  --gold-glow: rgba(212, 168, 67, 0.15);
+  --ink-900: #1c1c1c;
+  --ink-700: #3a3a3a;
+  --ink-500: #6b6b6b;
+  --ink-400: #9a9a9a;
+  --ink-300: #c4c4c4;
+  --cream-bg: #faf7f0;
+  --cream-card: #ffffff;
+}
+
+.font-serif-display {
+  font-family: "Noto Serif SC", "Cormorant Garamond", serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.font-cormorant {
+  font-family: "Cormorant Garamond", "Noto Serif SC", serif;
+}
+
+/* Light section wrapper */
+.rpg-dark-section {
+  background: var(--cream-bg);
+  position: relative;
+}
+
+.rpg-dark-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle at 50% 0%,
+    rgba(212, 168, 67, 0.05) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+/* Gold card on light background */
+.rpg-gold-card {
+  position: relative;
+  background: var(--cream-card);
+  border: 1px solid rgba(212, 168, 67, 0.25);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.rpg-gold-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 168, 67, 0.4) 30%,
+    rgba(212, 168, 67, 0.7) 50%,
+    rgba(212, 168, 67, 0.4) 70%,
+    transparent 100%
+  );
+  opacity: 0.5;
+  transition: opacity 0.35s;
+}
+
+.rpg-gold-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 0%),
+    rgba(212, 168, 67, 0.06) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.35s;
+  pointer-events: none;
+}
+
+.rpg-gold-card:hover {
+  border-color: rgba(212, 168, 67, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px -8px rgba(212, 168, 67, 0.15),
+    0 0 0 1px rgba(212, 168, 67, 0.15);
+}
+
+.rpg-gold-card:hover::before {
+  opacity: 1;
+}
+
+.rpg-gold-card:hover::after {
+  opacity: 1;
+}
+
+/* Gold filter chip */
+.rpg-gold-chip {
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  color: #6b6b6b;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+.rpg-gold-chip:hover {
+  border-color: rgba(212, 168, 67, 0.5);
+  color: #b8962f;
+}
+
+.rpg-gold-chip-active {
+  border-color: rgba(212, 168, 67, 0.7);
+  color: #ffffff;
+  background: linear-gradient(135deg, #d4a843 0%, #b8962f 100%);
+}
+
+/* Gold accent line */
+.rpg-gold-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 168, 67, 0.35),
+    transparent
+  );
+}
+
+/* Modal light theme */
+.rpg-modal-overlay {
+  background: rgba(30, 28, 24, 0.55);
+  backdrop-filter: blur(8px);
+}
+
+.rpg-modal-panel {
+  background: var(--cream-card);
+  border: 1px solid rgba(212, 168, 67, 0.25);
+  box-shadow: 0 24px 80px -16px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(212, 168, 67, 0.08);
+}
+
+.rpg-info-row {
+  border-bottom: 1px solid rgba(212, 168, 67, 0.12);
+  transition: background 0.2s;
+}
+
+.rpg-info-row:hover {
+  background: rgba(212, 168, 67, 0.04);
+}
+
+.rpg-case-link {
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  background: rgba(212, 168, 67, 0.03);
+  transition: all 0.25s ease;
+}
+
+.rpg-case-link:hover {
+  border-color: rgba(212, 168, 67, 0.45);
+  background: rgba(212, 168, 67, 0.08);
+}
+
+.rpg-photo-frame {
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  overflow: hidden;
+}
+
+.rpg-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rpg-scrollbar::-webkit-scrollbar-track {
+  background: #f5f2ea;
+}
+
+.rpg-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(212, 168, 67, 0.3);
+  border-radius: 3px;
+}
+
+.rpg-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 168, 67, 0.5);
+}
+
+/* Entrance animation */
+@keyframes rpg-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rpg-fade-up {
+  animation: rpg-fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes rpg-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.rpg-scale-in {
+  animation: rpg-scale-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
